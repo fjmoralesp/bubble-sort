@@ -6,7 +6,10 @@ function bubbleSort(array, reverse) {
     while (!isSorted) {
         isSorted = true;
         for (let j = 0; j <= sorted.length - 1; j++) {
-            if (sorted[j] > sorted[j + 1]) {
+            const operation = reverse
+                ? sorted[j] < sorted[j + 1]
+                : sorted[j] > sorted[j + 1];
+            if (operation) {
                 isSorted = false;
                 const aux = sorted[j + 1];
                 sorted[j + 1] = sorted[j];
@@ -15,7 +18,7 @@ function bubbleSort(array, reverse) {
         }
     }
 
-    return reverse? sorted.reverse() : sorted;
+    return sorted;
 }
 
 const response = bubbleSort(array);
